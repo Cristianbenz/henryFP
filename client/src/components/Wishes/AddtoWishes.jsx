@@ -33,7 +33,7 @@ const Wishes = () => {
         Browse, purchase or remove items from your wish list here.
       </Typography>
       <Box display="flex" flexDirection={"column"}>
-        {wishes.map((e, index) => {
+        {wishes?.map((e, index) => {
           return (
             <Box key={index} align-items="center" display="flex" width={"96%"}>
               <ul

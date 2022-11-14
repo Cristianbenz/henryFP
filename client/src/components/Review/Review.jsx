@@ -8,7 +8,7 @@ import ListItemText from '@mui/material/ListItemText';
 const Review = () => {
 	const cartList = useSelector((state) => state.user.cartList);
 
-	let totalPrice = cartList.map((e) => {
+	let totalPrice = cartList?.map((e) => {
 		if (e.price == null) {
 			return 0;
 		} else {
@@ -39,7 +39,7 @@ const Review = () => {
 				Order summary
 			</Typography>
 			<List disablePadding>
-				{cartList.map((product) => (
+				{cartList?.map((product) => (
 					<ListItem key={product.name} sx={{ py: 1, px: 0 }}>
 						<ListItemText primary={product.name} />
 						<Typography variant="body2">${product.price}</Typography>

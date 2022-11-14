@@ -110,7 +110,7 @@ export default function Discounts() {
         )}
       </div>
       <Box sx={styles.container}>
-        {discounts.map((game) => (
+        {discounts?.map((game) => (
           <Card 
             id={game.id}
             name={game.name} 

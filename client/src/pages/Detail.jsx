@@ -161,7 +161,7 @@ export default function Detail() {
                 >
                   {/* CARRUSEL */}
                   <Carousel autoPlay={false} className="carusel">
-                    {imgCarousel.map((item, index) => (
+                    {imgCarousel?.map((item, index) => (
                       <Item key={index} item={item} />
                     ))}
                   </Carousel>

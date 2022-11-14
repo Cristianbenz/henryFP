@@ -57,7 +57,7 @@ const Cart = () => {
   const stripe = useStripe();
   const elements = useElements();
 
-  let totalPrice = cartList.map((e) => {
+  let totalPrice = cartList?.map((e) => {
     if (e.price == null) {
       return 0;
     } else {

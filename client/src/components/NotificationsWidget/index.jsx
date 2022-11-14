@@ -38,7 +38,7 @@ export default function NotificationsWidget() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        {notifications.map((el, i) => (
+        {notifications?.map((el, i) => (
           <NotificationCard text={el.text} id={el.id} />
         ))}
       </Menu>

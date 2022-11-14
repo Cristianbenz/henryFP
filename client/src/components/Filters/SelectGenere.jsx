@@ -31,7 +31,7 @@ export default function SelectGenere() {
 						<em>None</em>
 					</MenuItem>
 					{
-						options.map((el, i) => (
+						options?.map((el, i) => (
 							<MenuItem key={i} value={el.name}>{el.name}</MenuItem>
 						))
 					}

@@ -15,7 +15,7 @@ const styles = {
 export default function UsersList({ users }) {
   return (
     <List>
-      {users.map((user) => (
+      {users?.map((user) => (
         <>
           <ListItem sx={styles.item}>
             <UserItem

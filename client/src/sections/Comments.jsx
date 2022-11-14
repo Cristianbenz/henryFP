@@ -203,7 +203,7 @@ export default function Comments({ list, type }) {
   return (
     <div style={{ padding: 0 }} className="Comments">
       <h1>{type === "review" ? "Reseñas" : "Preguntas"}</h1>
-      {gameComment.map((c) => {
+      {gameComment?.map((c) => {
         return (
           <Paper
             elevation={4}

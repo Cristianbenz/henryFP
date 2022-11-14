@@ -105,7 +105,7 @@ export default function CartWidget() {
             overflowY: "auto",
           }}
         >
-          {cartList.map((el, i) => (
+          {cartList?.map((el, i) => (
             <CartCard
               key={el.id}
               id={el.id}

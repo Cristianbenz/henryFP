@@ -42,7 +42,7 @@ export default function AdminOrders() {
   return (
     <AdminOrdersContainer>
       <Container sx={styles.cardContainer}>
-        {orders.map((order) => (
+        {orders?.map((order) => (
           <Card key={order.id} sx={styles.card}>
             <CardContent sx={styles.content}>
               <div variant='h6' textAlign={'start'}>Id: {order.id}</div>
