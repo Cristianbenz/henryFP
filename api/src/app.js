@@ -20,7 +20,7 @@ server.use(
     limits: { fileSize: 50 * 1024 * 1024 },
   })
 );
-server.use(cors({ origin: "http://localhost:3000" }));
+server.use(cors({ origin: process.env.CLIENT_URI }));
 //aca termina jajas
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 server.use(bodyParser.json({ limit: "50mb" }));
