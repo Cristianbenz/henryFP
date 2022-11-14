@@ -29,7 +29,7 @@ const Games = () => {
   const dispatch = useDispatch();
 
   if (loading) return <Loader />;
-  else if (!games.length && !loading)
+  else if (!games?.length && !loading)
     return <h3>Uups... no match for your search.</h3>;
 
   return (

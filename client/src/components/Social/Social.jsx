@@ -13,7 +13,7 @@ const Social = () => {
 		<Box className="boxBanner">
 			<Paper height={400} className="paperBan" elevation={1}>
 				<Carousel className="carusel" indicators={false} animation={'slide'}>
-					{gameBanner.map((item) => (
+					{gameBanner?.map((item) => (
 						<Link to={`/detail/${item.id}`} key={item.id}>
 							<Item
 								key={item.id}

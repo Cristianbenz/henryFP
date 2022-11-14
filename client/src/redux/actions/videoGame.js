@@ -68,7 +68,7 @@ export const cleanToFilter = (clean) => {
 export const getGenres = () =>
   async function (dispatch) {
     try {
-      const request = await axios("http://localhost:3001/genres");
+      const request = await axios(API + "genres");
       dispatch(getAllGenres(request.data));
     } catch (error) {
       return;
