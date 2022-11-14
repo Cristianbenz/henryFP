@@ -6,7 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { filterByGenre } from '../../redux/reducers/videoGame';
-const { REACT_APP_BASE_URI: API } = process.env
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 export default function SelectGenere() {
 	const dispatch = useDispatch();
@@ -31,8 +31,8 @@ export default function SelectGenere() {
 						<em>None</em>
 					</MenuItem>
 					{
-						options.map(el => (
-							<MenuItem key={el.id} value={el.name}>{el.name}</MenuItem>
+						options.map((el, i) => (
+							<MenuItem key={i} value={el.name}>{el.name}</MenuItem>
 						))
 					}
 				</Select>

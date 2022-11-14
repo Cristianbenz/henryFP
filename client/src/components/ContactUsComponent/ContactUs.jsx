@@ -64,7 +64,7 @@ const ContactComponent = () => {
             
             <Box sx={{display:"flex", flexDirection:"column", justifyContent:"space-evenly", height: "605px", padding:"40px", borderRadius:"20px", boxShadow: 4 , border:"solid 1px",  }}>
          
-         <Box container  sx={{display:"flex", flexDirection:"column", gap:"8px", textAlign:"start", color:"#091d36" }}>
+         <Box sx={{display:"flex", flexDirection:"column", gap:"8px", textAlign:"start", color:"#091d36" }}>
          <Typography  variant='h5' gutterBottom fontWeight={"bold"}>
                 Contact Us!
             </Typography>
