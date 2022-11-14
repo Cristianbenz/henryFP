@@ -4,10 +4,14 @@ const fs = require('fs');
 const path = require('path');
 const { generateKey } = require('crypto');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST,
+  PGUSER,
+  PGPASSWORD,
+  PGHOST,
+  PGPORT,
+  PGDATABASE
 } = process.env;
 // cambiar name de db
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`, {
+const sequelize = new Sequelize(`postgresql://${PGUSER}}:${PGPASSWORD}}@${PGHOST}:${PGPORT}/${PGDATABASE}`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
   // CONFIGURCION ADICIONAL
