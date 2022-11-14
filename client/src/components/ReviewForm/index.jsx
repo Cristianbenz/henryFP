@@ -16,6 +16,7 @@ import {
 import { StarBorder } from "@mui/icons-material/";
 import { postComments } from "../../redux/actions/comment";
 import { TextForm } from "..";
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 export default function ReviewForm({ gameId, userId }) {
   const { id } = useSelector((state) => state.user);
@@ -33,7 +34,7 @@ export default function ReviewForm({ gameId, userId }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/user/comments?userID=${id}`)
+      .get(API + `user/comments?userID=${id}`)
       .then((response) =>
         response.data.comments.map((review) => review.videogameId)
       )

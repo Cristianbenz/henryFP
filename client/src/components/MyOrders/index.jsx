@@ -4,6 +4,7 @@ import axios from "axios";
 import { Card, CardContent, Box, Typography, Container } from "@mui/material";
 
 import { AdminOrdersContainer } from "../../containers";
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 const styles = {
   cardContainer: {
@@ -33,7 +34,7 @@ export default function AdminOrders() {
   const [ orders, setOrders ] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:3001/orders/user/'+ id)
+    axios.get(API + 'orders/user/'+ id)
     .then(response => setOrders(response.data.PurchaseOrders))
     .catch(() => setOrders([]))
   }, [id])

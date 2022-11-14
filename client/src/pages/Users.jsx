@@ -4,6 +4,7 @@ import { Container, FormControl, Select, MenuItem, InputLabel, Input } from "@mu
 import { UsersContainer } from '../containers'
 import { UsersList } from '../sections'
 import { AdminLayout } from '../components';
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 export default function Users() {
   const [ users, setUsers ] = useState([])
@@ -15,7 +16,7 @@ export default function Users() {
 
 	useEffect(() => {
     const queries = `filter[name]=${filters.name}`
-		axios.get('http://localhost:3001/user?' + queries)
+		axios.get(API + 'user?' + queries)
     .then(response => {
       if(Array.isArray(response.data)) {
         setUsers(response.data)

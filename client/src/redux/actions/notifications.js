@@ -1,7 +1,7 @@
 import axios from "axios";
 import { updateNotifications } from "../reducers/user";
 import { store } from "../store";
-const API = "http://localhost:3001/";
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 export const deleteFromNotifications = (notiId) => {
   const { id, notifications } = store.getState().user;

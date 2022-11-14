@@ -6,7 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { filterByGenre } from '../../redux/reducers/videoGame';
-
+const { REACT_APP_BASE_URI: API } = process.env
 
 export default function SelectGenere() {
 	const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export default function SelectGenere() {
 	const { genre } = useSelector(state => state.videogames.filters)
 	
 	useEffect(() => {
-		axios.get('http://localhost:3001/genres')
+		axios.get(API + 'genres')
 		.then(response => setOptions(response.data))
 	}, [])
 

@@ -9,6 +9,8 @@ import {
 } from "@mui/material";
 import { TextForm } from "..";
 
+const { REACT_APP_API_BASE_URI: API } = process.env
+
 export default function AnswerModal({userId, questionId, game}) {
   const [open, setOpen] = useState(false);
   const [answer, setAnswer] = useState("");
@@ -22,10 +24,10 @@ export default function AnswerModal({userId, questionId, game}) {
   };
 
   const handleSubmit = () => {
-    axios.put('http://localhost:3001/answer/' + questionId, {
+    axios.put(API + 'answer/' + questionId, {
       text: answer
     })
-    .then(() => axios.put(`http://localhost:3001/user/notifications/${userId}`, {
+    .then(() => axios.put(API + `user/notifications/${userId}`, {
       text: `Recibiste una respuesta en tu pregunta sobre el juego: ${game}`
     }))
   };

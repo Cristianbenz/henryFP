@@ -22,6 +22,7 @@ import { AddressForm, Review } from "../../components";
 
 import { makeEmail } from "./utils";
 import { addPurchases, clearCart } from "../../redux/actions/user";
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 
 const Cart = () => {
@@ -92,12 +93,12 @@ const Cart = () => {
     if (!error) {
       const { id } = paymentMethod;
       try {
-        await axios.post("http://localhost:3001/payment", {
+        await axios.post(API + "payment", {
           id,
           amount: totalPrice, //cents
         });
 
-        const order = await axios.post(`http://localhost:3001/orders?saveData=${saveInfo}}`, {
+        const order = await axios.post(API + `orders?saveData=${saveInfo}}`, {
           userData: {
             userID: userId,
             ...address,

@@ -8,6 +8,7 @@ import { DiscountsContainer } from "../containers";
 import { Card, Footer, Loader } from "../components";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Swal from "sweetalert2";
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 const styles = {
   banner: {
@@ -55,10 +56,10 @@ export default function Discounts() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios("http://localhost:3001/discounts")
+    axios(API + "discounts")
     .then(response => setDiscounts(response.data))
     .then(() => {
-      axios('http://localhost:3001/images/discounts')
+      axios(API + 'images/discounts')
       .then(response => setBanner(response.data.image))
     })
     .then(() => setLoading(false))
@@ -73,7 +74,7 @@ export default function Discounts() {
     if (!inputValue) return Swal.fire("No se puede subir un archivo vacio");
     const data = new FormData();
     data.append('image', inputValue)
-    const url = "http://localhost:3001/images/discounts";
+    const url = API + "images/discounts";
     const image = await axios.post(url, data);
     if(image) setBanner(image.data)
   }

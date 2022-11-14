@@ -11,7 +11,7 @@ import {
 	getUserData,
 } from '../reducers/user';
 import { store } from '../store';
-const API = 'http://localhost:3001/';
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 export const getUserInfo = (email, auth) => {
 	return async function (dispatch) {

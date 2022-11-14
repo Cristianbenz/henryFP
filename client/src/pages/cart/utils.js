@@ -1,4 +1,5 @@
 import axios from 'axios'
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 export async function saveOrder() {
     
@@ -11,7 +12,7 @@ export async function makeEmail(to, name, order) {
 			<span>Precio: ${game.price}</span>
 		</li>`
 	))
-    axios.post('http://localhost:3001/sendMail', {
+    axios.post(API + 'sendMail', {
         to,
         subject: 'Compra Realizada con exito!',
         html: `

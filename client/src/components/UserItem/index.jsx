@@ -4,13 +4,14 @@ import { Box, IconButton, Select, MenuItem, Typography } from "@mui/material";
 import { DeleteForever } from "@mui/icons-material";
 
 import DotMenu from "./dotMenu";
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 export default function UserItem({ username, email, admin, id }) {
   const navigate = useNavigate();
 
   async function changeAdmin(e) {
     const value = e.target.value;
-    await axios.put("http://localhost:3001/user/" + id, {
+    await axios.put(API + "user/" + id, {
       admin: value,
     });
     navigate(0);

@@ -9,7 +9,7 @@ import {
   postAllGames,
 } from "../reducers/videoGame";
 
-const API = "http://localhost:3001/";
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 export const getGames = ({ name, rating, price, genre } = "", sort, page) => {
   const queries = `filter[name]=${name}&filter[rating]=${rating}&filter[price]=${price}&filter[genre]=${genre}&options[sort]=${sort}&options[page]=${page}`;

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import Comments from '../sections/Comments'
 import { Loader } from "../components";
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 export default function MyQuestions() {
     const { id } = useSelector(state => state.user)
@@ -10,7 +11,7 @@ export default function MyQuestions() {
     const [ questions, setQuestions ] = useState([])
   
     useEffect(() => {
-      axios.get(`http://localhost:3001/questions?userId=${id}`)
+      axios.get(API + `questions?userId=${id}`)
       .then(response => setQuestions(response.data?.reverse()))
       .catch(() => setQuestions([]))
       .finally(() => setIsLoading(false))

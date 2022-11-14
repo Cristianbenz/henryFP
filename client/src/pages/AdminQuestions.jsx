@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { Container } from "@mui/system";
 import Comments from '../sections/Comments'
 import { AdminLayout } from "../components";
+const { REACT_APP_API_BASE_URI: API } = process.env
 export default function AdminQuestions() {
   const [ questions, setQuestions ] = useState([])
   const [filters, setFilters] = useState({
@@ -13,7 +14,7 @@ export default function AdminQuestions() {
   });
 
   useEffect(() => {
-    axios.get('http://localhost:3001/questions')
+    axios.get(API + 'questions')
     .then(response => response.data.filter(el => !el.answer))
     .then(results => setQuestions(results))
     .catch(() => setQuestions([]))

@@ -6,6 +6,7 @@ import { MoreVert, DeleteForever } from "@mui/icons-material";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 import Swal from "sweetalert2";
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 export default function DotMenu({ id }) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -20,7 +21,7 @@ export default function DotMenu({ id }) {
 
   function requestNewPassword(email) {
     const actionCodeSettings = {
-      url: "http://localhost:3000/user/",
+      url: window.location.origin + "/user/",
       handleCodeInApp: true,
     };
     sendPasswordResetEmail(auth, email, actionCodeSettings);
@@ -36,7 +37,7 @@ export default function DotMenu({ id }) {
       cancelButtonText: `Cancelar`,
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await axios.put("http://localhost:3001/user/" + id, {
+        await axios.put(API + "user/" + id, {
           available: false,
         });
         navigate(0);

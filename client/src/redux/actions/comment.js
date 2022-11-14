@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getGameComments, setGameComments } from '../reducers/videoGame';
 
-const API = 'http://localhost:3001/';
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 export const getComments = (id) => {
 	return async function (dispatch) {

@@ -29,7 +29,7 @@ import Swal from "sweetalert2";
 import validation from "./validations";
 import { getUserInfo } from "../../redux/actions/user";
 import GoogleIcon from '@mui/icons-material/Google';
-
+const { REACT_APP_API_BASE_URI: API } = process.env
 const styles = {
   container: {
     display: "flex",
@@ -79,7 +79,7 @@ export default function LandingForm({ register, setRegister }) {
       password,
       prevCart,
     };
-    await axios.post("http://localhost:3001/register", newUserData);
+    await axios.post(API + "register", newUserData);
     setRegister(false);
   }
 
@@ -126,7 +126,7 @@ export default function LandingForm({ register, setRegister }) {
   }
   async function handleReset(email) {
     const actionCodeSettings = {
-      url: "http://localhost:3000/",
+      url: window.location.origin,
       handleCodeInApp: true,
     };
     sendPasswordResetEmail(auth, (email = userInfo.email), actionCodeSettings);

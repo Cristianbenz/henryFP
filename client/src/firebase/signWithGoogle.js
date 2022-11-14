@@ -1,8 +1,9 @@
 import axios from 'axios'
+const { REACT_APP_API_BASE_URI: API } = process.env
 
 export default async function signWithGoogle(user) {
   const { email, displayName, uid, photoURL, emailVerified  } = user
-  await axios.post('http://localhost:3001/login?google=true', {
+  await axios.post(API + 'login?google=true', {
       id: uid,
       email,
       name: displayName,

@@ -32,7 +32,7 @@ const UserPost = async (req, res) => {
 		});
 		await newUser.update({ cart: prevCart });
 		const actionCodeSettings = {
-			url: 'http://localhost:3000/',
+			url: window.location.origin,
 			handleCodeInApp: true,
 		};
 		sendSignInLinkToEmail(auth, email, actionCodeSettings);
