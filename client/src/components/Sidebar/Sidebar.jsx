@@ -30,6 +30,7 @@ import { useContext, useRef } from "react";
 import { ColorModeContext } from "../Theme/Theme";
 import { Link as scrollLink } from "react-scroll";
 import "./Sidebar.css";
+import SessionButton from "../SessionButton";
 
 const drawerWidth = 240;
 
@@ -224,6 +225,9 @@ const Sidebar = () => {
                   <ListItemText primary={"Contact us"} />
                 </ListItemButton>
               </Link>
+            </ListItem>
+            <ListItem xs={{display:{xs:'block', md:'none'}}}>
+              <SessionButton />
             </ListItem>
             <ListItem
               sx={{
